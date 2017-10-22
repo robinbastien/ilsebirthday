@@ -1,0 +1,146 @@
+body {
+  min-height: 100vh;
+
+  font-family: 'Droid Sans', sans-serif;
+
+}
+
+body.is-animating {
+  -webkit-animation: bgAnim 5s ease infinite;
+  -moz-animation: bgAnim 5s ease infinite;
+  animation: bgAnim 5s ease infinite;
+  background: linear-gradient(270deg, #3a22bb, #193eb0, #7620ca);
+  background-size: 600% 600%;
+}
+
+@-webkit-keyframes bgAnim {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+@-moz-keyframes bgAnim {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+@keyframes bgAnim {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+body > * {
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container--outer {
+  background-color: #111;
+  -webkit-transition: 1.5s background-color ease;
+  -o-transition: 1.5s background-color ease;
+  transition: 1.5s background-color ease;
+  height: 100vh;
+}
+.container--content {
+  vertical-align: middle;
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.7s background-color ease;
+  -o-transition: 0.7s background-color ease;
+  transition: 0.7s background-color ease;
+}
+
+.the-lion {
+  position: absolute;
+  left: 50%;
+  top: 50vh;
+  width: 100%;
+  max-width: 15rem;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  border-radius: 8px;
+  padding: 1rem;
+  -webkit-transition: 0.7s all ease;
+  -o-transition: 0.7s all ease;
+  transition: 0.7s all ease;
+}
+
+
+.text--intro {
+  color: white;
+  opacity: 0;
+  margin-top: 14rem;
+  transition-delay: 3s;
+}
+
+.text--intro, .enter-digits {
+  opacity: 0;
+  -webkit-transition: 1s all ease-out;
+  -o-transition: 1s all ease-out;
+  transition: 1s all ease-out;
+  pointer-events: none;
+  -webkit-transform: translateY(-1rem);
+  -ms-transform: translateY(-1rem);
+  transform: translateY(-1rem);
+}
+
+/* Enter Digits */
+.enter-digits > input {
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(255,255,255,0.5);
+  font-size: 4rem;
+  width: 4rem;
+  text-align: center;
+  font-family: courier, sans-serif;
+  color: #111;
+  display: inline-block;
+  margin-right: 0.25rem;
+  outline: none;
+}
+/****************************
+  Stage 2
+  ***************************/
+.stage-2 .the-lion {
+  top: 0rem;
+  -webkit-transform: translateX(-50%) scale(0.7);
+  -ms-transform: translateX(-50%) scale(0.7);
+  transform: translateX(-50%) scale(0.7);
+  z-index: 10;
+}
+
+.stage-2 .text--intro,
+.stage-2 .enter-digits {
+  opacity: 1;
+  -webkit-transform: translateY(1rem);
+  -ms-transform: translateY(1rem);
+  transform: translateY(1rem);
+  pointer-events: all;
+}
+
+.stage-2 .container--outer {
+  background-color: transparent;
+}
+
+.stage-2 .container--content {
+  background-color: transparent;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
