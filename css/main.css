@@ -1,14 +1,22 @@
 body {
   min-height: 100vh;
-
+  display: none;
+  background-color: #111;
   font-family: 'Droid Sans', sans-serif;
+  -webkit-transition: 3s background-color ease;
+  -o-transition: 3s background-color ease;
+  transition: 3s background-color ease;
+  overflow: hidden;
+}
 
+body.is-loaded {
+  display: block;
 }
 
 body.is-animating {
-  -webkit-animation: bgAnim 5s ease infinite;
-  -moz-animation: bgAnim 5s ease infinite;
-  animation: bgAnim 5s ease infinite;
+  /*-webkit-animation: bgAnim 15s ease infinite;
+  -moz-animation: bgAnim 15s ease infinite;
+  animation: bgAnim 15s ease infinite;*/
   background: linear-gradient(270deg, #3a22bb, #193eb0, #7620ca);
   background-size: 600% 600%;
 }
@@ -43,6 +51,7 @@ img {
   transition: 1.5s background-color ease;
   height: 100vh;
 }
+
 .container--content {
   vertical-align: middle;
   animation-name: blink;
@@ -56,7 +65,7 @@ img {
   -o-transition: 0.7s background-color ease;
   transition: 0.7s background-color ease;
   width: 100%;
-  margin: 0 auto;;;;
+  margin: 0 auto;
 }
 
 .the-lion {
@@ -108,6 +117,15 @@ img {
   margin-right: 0.25rem;
   outline: none;
 }
+
+.enter-digits > input:not(.is-correct):disabled {
+  cursor: not-allowed;
+  background-color: rgba(200,200,200,0.4);
+}
+
+.enter-digits > input.is-correct:disabled {
+  background-color: rgba(114, 234, 142, 0.51);
+}
 /****************************
   Stage 2
   ***************************/
@@ -119,12 +137,11 @@ img {
   z-index: 10;
 }
 
-.stage-2 .text--intro,
-.stage-2 .enter-digits {
+.stage-2 .show-stage-2,
+.stage-3 .show-stage-3,
+.stage-4 .show-stage-4,
+.stage-5 .show-stage-5 {
   opacity: 1;
-  -webkit-transform: translateY(1rem);
-  -ms-transform: translateY(1rem);
-  transform: translateY(1rem);
   pointer-events: all;
 }
 
@@ -134,7 +151,103 @@ img {
 
 .stage-2 .container--content {
   background-color: transparent;
-  animation-iteration-count: 1;
+  animation: none;
+}
+
+.stage-3 .enter-digits {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.bg-circle {
+
+  opacity: 0;
+  top: 100vh;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 99rem;
+  background-color: rgba(255,255,255,0.2);
+  position: absolute;
+  pointer-events: none;
+  left: 3rem;
+
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.bg-circle:nth-child(2) {
+  animation-duration: 3s;
+  left: 5rem;
+  top: 15vh;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255,255,255,0.3);
+}
+
+.bg-circle:nth-child(3) {
+  animation-duration: 6.2s;
+  left: 80vw;
+  top: 20vh;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255,255,255,0.3);
+}
+
+.bg-circle:nth-child(4) {
+  animation-duration: 5s;
+  left: 50vw;
+  top: 50vh;
+  width: 6rem;
+  height: 6rem;
+  background-color: rgba(255,255,255,0.6);
+}
+.bg-circle:nth-child(5) {
+  animation-duration: 3.4s;
+  left: 60vw;
+  top: 30vh;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255,255,255,0.3);
+}
+.bg-circle:nth-child(6) {
+  animation-duration: 3s;
+  left: 20vw;
+  top: 60vh;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(255,255,255,0.4);
+}
+body.is-complete .text--intro {
+  font-size: 2rem;
+}
+
+body.is-complete .text--intro h1 {
+  font-size: 3.75rem;
+}
+
+body.is-complete .enter-digits {
+  -webkit-transform: translateY(3rem);
+  -ms-transform: translateY(3rem);
+  transform: translateY(3rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.is-complete .bg-circle {
+  animation-name: float;
+}
+
+@keyframes float {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translateX(5rem) translateY(-15rem) scale(2);
+    -ms-transform: translateX(5rem) translateY(-15rem) scale(2);
+    transform: translateX(5rem) translateY(-15rem) scale(2);
+  }
 }
 
 

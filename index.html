@@ -20,6 +20,13 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
   </head>
     <body>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -30,36 +37,31 @@
         </header> -->
         <div class="container--outer text-center">
           <div class="container container--content text-center">
-            <div class="the-lion">
+            <div class="the-lion the-lion-clickable">
               <img src="img/lion.svg" class="text-center" />
             </div>
-            <div class="text--intro">
+            <div class="text--intro show-stage-2">
               <h1>Happy Birthday Ilse!</h1>
-              <p>A lioness turns 26 years old today. Now lionesses usually get what they want, but unfortunately it is locked! Can you guess what it is?</p>
+              <p class="text--content">A lioness turns 26 years old today. Now lionesses usually get what they want, but unfortunately it is locked! Can you figure out what it is?</p>
+              <p><button class="btn btn--start">I'll try</button>
+              <button class="btn btn--cancel">No!</button></p>
             </div>
 
           </div>
 
           <div class="enter-digits text-center">
-            <input type="text" maxlength="1" class="digit digit-1">
-            <input type="text" maxlength="1" class="digit digit-2">
-            <input type="text" maxlength="1" class="digit digit-3">
-            <input type="text" maxlength="1" class="digit digit-4">
-            <input type="text" maxlength="1" class="digit digit-5">
+            <input data-stage="3" disabled="disabled" type="text" maxlength="1" class="digit digit-1">
+            <input data-stage="4" disabled="disabled" type="text" maxlength="1" class="digit digit-2">
+            <input data-stage="5" disabled="disabled" type="text" maxlength="1" class="digit digit-3">
+            <input data-stage="6" disabled="disabled" type="text" maxlength="1" class="digit digit-4">
+            <input data-stage="7" disabled="disabled" type="text" maxlength="1" class="digit digit-5">
           </div>
         </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-3.2.1.min.js"><\/script>')</script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+
         <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
 </html>
